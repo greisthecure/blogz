@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Just Share It! -- Add New Blog Post</h1>
+
+    <hr />
+
+    <form method='post'>
+        <label>
+            Post Title:
+            <input type="text" name='title' placeholder="Blog Post Title" style="width: 500px" value="{{request.form['title']}}" />
+            {% if title_error|length != None %}
+            <span class="error">{{title_error}}</span>
+            {% endif %}
+        </label>
+        
+        <br /> <br />
+
+        <label>
+            Blog Post:
+        </label>
+        <br />
+            <textarea name='body' placeholder="Enter your blog post here"  style="width: 800px; height: 100px">{{ request.form['body'] }}</textarea>
+            {% if post_error|length != None %}
+            <span class="error">{{post_error}}</span>
+            {% endif %}
+        <br />
+        <input type="submit" value='Submit Post' />
+    </form>
+    <br />
+    <hr />
+
+{% endblock %}

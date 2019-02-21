@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1><center>~Keep it real! Posts~</center></h1>
+<br>
+<hr />
+
+<!-- Posts -->
+
+{% if entries|length == 0 %}
+<p>No Posts Submitted Yet</p>
+
+{% else %}
+    <ul>
+        <li>
+            {% for entry in entries %}
+            <h3><a href="/displaypost?id={{entry.id}}">{{entry.title}}</a></h3>
+            <p>{{entry.body}}</p>
+            <br /><hr />
+            {% endfor %}
+        </li>
+    </ul>
+{% endif %}
+
+
+{% endblock %}

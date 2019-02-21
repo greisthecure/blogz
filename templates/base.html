@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>Build-A-Blog</title>
+      <style>
+            .error {
+                color: red;
+            }
+      </style>
+  </head>
+<body>
+
+    <nav>
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="alert alert-{{category}} alert-dismissible">
+                {{message|safe}}
+                </div>
+            {% endfor %}
+        {% endwith %}
+    <br />
+    <br />
+        <!-- These links work now! :) -->
+        <a href="/newpost">Add New Post</a><span> | </span><a href="/blog">Main Blog Page</a>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Create Your Account for Blogz!</h1>
+<hr />
+<form action="/register" method="post">
+    <table>
+        <tr>
+            <td><label for="username">Username</label></td>
+            <td>
+                <input name="username" type="text" placeholder="Username" value="{{username}}" />
+                {% if username_error|length != 0 %}
+                    <span class="error"> {{username_error}} </span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td><label for="password">Password</label></td>
+            <td>
+                <input name="password" type="password" placeholder="Enter Password" />
+                {% if pass_error|length != 0 %}
+                    <span class="error"> {{pass_error}} </span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td><label for="verify">Verify Password</label></td>
+            <td>
+                <input name="verify" type="password" placeholder="Re-enter your password">
+                    <span class="error"> {{verifypw_error}} </span>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="Register">
+</form>
+{% endblock %}

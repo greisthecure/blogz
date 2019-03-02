@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1><center>~Keep it real! Posts~</center></h1>
+<h1><center>~Just Keep It Real!Blogz Posts~</center></h1>
 <br>
 <hr />
 
@@ -17,6 +17,7 @@
             {% for entry in entries %}
             <h3><a href="/displaypost?id={{entry.id}}">{{entry.title}}</a></h3>
             <p>{{entry.body}}</p>
+            <em>Written by: <a href="/blog?user={{entry.owner_id}}" >{{entry.owner.username}}</a></em>
             <br /><hr />
             {% endfor %}
         </li>

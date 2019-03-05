@@ -33,7 +33,7 @@ class User(db.Model):
 
 @app.before_request
 def require_login():  # Only allows viewer (not logged in) to see certain pages only
-    allowed_routes = ['login', 'register', 'index', 'blog']
+    allowed_routes = ['login', 'register', 'index', 'blog', 'displaypost']
     if request.endpoint not in allowed_routes and 'username' not in session:
         return redirect('/login')
 
